@@ -1,0 +1,6 @@
+.env/
+*/__pycache__/*
+dataset/*.tsv
+dataset/memes.json
+dataset/image_collection/base_img/*.jpg
+dataset/image_collection/sm_meme_imgflip_collection/*.jpg

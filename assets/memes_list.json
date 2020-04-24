@@ -1,0 +1,189 @@
+[
+    {
+        "id" : 1,
+        "imgflip_id" : "259680",
+        "meme_label" : "Am I The Only One Around Here",
+        "base_img" : "https://i.imgflip.com/5kdc.jpg",
+        "dimension" : {
+            "width" : 500,
+            "height" : 348,
+            "text_box" : 2
+        } 
+    },
+    {
+        "id" : 2,
+        "imgflip_id" : "56225174",
+        "meme_label" : "Be Like Bill",
+        "base_img" : "https://i.imgflip.com/xh3me.jpg",
+        "dimension" : {
+            "width" : 913,
+            "height" : 907,
+            "text_box" : 4
+        } 
+    },
+    {
+        "id" : 3,
+        "imgflip_id" : "129242436",
+        "meme_label" : "Change My Mind",
+        "base_img" : "https://i.imgflip.com/24y43o.jpg",
+        "dimension" : {
+            "width" : 482,
+            "height" : 361,
+            "text_box" : 2
+        } 
+    },
+    {
+        "id" : 4,
+        "imgflip_id" : "61520",
+        "meme_label" : "Futurama Fry",
+        "base_img" : "https://i.imgflip.com/1bgw.jpg",
+        "dimension" : {
+            "width" : 552,
+            "height" : 414,
+            "text_box" : 2
+        } 
+    },
+    {
+        "id" : 5,
+        "imgflip_id" : "1367068",
+        "meme_label" : "I Should Buy A Boat Cat",
+        "base_img" : "https://i.imgflip.com/tau4.jpg",
+        "dimension" : {
+            "width" : 500,
+            "height" : 368,
+            "text_box" : 2
+        } 
+    },
+    {
+        "id" : 6,
+        "imgflip_id" : "163573",
+        "meme_label" : "Imagination Spongebob",
+        "base_img" : "https://i.imgflip.com/3i7p.jpg",
+        "dimension" : {
+            "width" : 500,
+            "height" : 366,
+            "text_box" : 2
+        } 
+    },
+    {
+        "id" : 7,
+        "imgflip_id" : "100777631",
+        "meme_label" : "Is This A Pigeon",
+        "base_img" : "https://i.imgflip.com/1o00in.jpg",
+        "dimension" : {
+            "width" : 1587,
+            "height" : 1425,
+            "text_box" : 3
+        } 
+    },
+    {
+        "id" : 8,
+        "imgflip_id" : "184801100",
+        "meme_label" : "Me And The Boys",
+        "base_img" : "https://i.imgflip.com/320xfw.jpg",
+        "dimension" : {
+            "width" : 720,
+            "height" : 476,
+            "text_box" : 2
+        } 
+    },
+    {
+        "id" : 9,
+        "imgflip_id" : "61579",
+        "meme_label" : "One Does Not Simply",
+        "base_img" : "https://i.imgflip.com/1bij.jpg",
+        "dimension" : {
+            "width" : 568,
+            "height" : 335,
+            "text_box" : 2
+        } 
+    },
+    {
+        "id" : 10,
+        "imgflip_id" : "61581",
+        "meme_label" : "Put It Somewhere Else Patrick",
+        "base_img" : "https://i.imgflip.com/1bil.jpg",
+        "dimension" : {
+            "width" : 334,
+            "height" : 604,
+            "text_box" : 2
+        } 
+    },
+    {
+        "id" : 11,
+        "imgflip_id" : "196652226",
+        "meme_label" : "Spongebob Ight Imma Head Out",
+        "base_img" : "https://i.imgflip.com/392xtu.jpg",
+        "dimension" : {
+            "width" : 822,
+            "height" : 960,
+            "text_box" : 2
+        } 
+    },
+    {
+        "id" : 12,
+        "imgflip_id" : "563423",
+        "meme_label" : "That Would Be Great",
+        "base_img" : "https://i.imgflip.com/c2qn.jpg",
+        "dimension" : {
+            "width" : 526,
+            "height" : 440,
+            "text_box" : 2
+        } 
+    },
+    {
+        "id" : 13,
+        "imgflip_id" : "61532",
+        "meme_label" : "The Most Interesting Man In The World",
+        "base_img" : "https://i.imgflip.com/1bh8.jpg",
+        "dimension" : {
+            "width" : 550,
+            "height" : 690,
+            "text_box" : 2
+        } 
+    },
+    {
+        "id" : 14,
+        "imgflip_id" : "61580",
+        "meme_label" : "Too Damn High",
+        "base_img" : "https://i.imgflip.com/1bik.jpg",
+        "dimension" : {
+            "width" : 420,
+            "height" : 316,
+            "text_box" : 2
+        } 
+    },
+    {
+        "id" : 15,
+        "imgflip_id" : "61533",
+        "meme_label" : "X All The Y",
+        "base_img" : "https://i.imgflip.com/1bh9.jpg",
+        "dimension" : {
+            "width" : 500,
+            "height" : 355,
+            "text_box" : 2
+        } 
+    },
+    {
+        "id" : 16,
+        "imgflip_id" : "91538330",
+        "meme_label" : "X X Everywhere",
+        "base_img" : "https://i.imgflip.com/1ihzfe.jpg",
+        "dimension" : {
+            "width" : 2118,
+            "height" : 1440,
+            "text_box" : 2
+        } 
+    },
+    {
+        "id" : 17,
+        "imgflip_id" : "61527",
+        "meme_label" : "Y U No",
+        "base_img" : "https://i.imgflip.com/1bh3.jpg",
+        "dimension" : {
+            "width" : 500,
+            "height" : 500,
+            "text_box" : 2
+        } 
+    }
+]
