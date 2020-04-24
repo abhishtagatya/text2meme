@@ -1,7 +1,7 @@
 # Text2Meme 🖼️ 
 Text2Meme is a Meme Classification Experiment based on Caption Text (Implemented as a Discord Bot)
 
-![Software Preview](assets/docs/Preview.png)
+![](assets/docs/Preview.PNG)
 
 ## About This
 
