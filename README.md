@@ -9,7 +9,7 @@ I made a meme classification model based on the memes caption text. I implemente
 
 ## Dataset
 
-[ImgFlip-Scraped Memes Caption Dataset]()
+[ImgFlip-Scraped Memes Caption Dataset](https://www.kaggle.com/abhishtagatya/imgflipscraped-memes-caption-dataset)
 
 You can freely use the dataset provided in Kaggle. It might not be regularly maintaned, but I also provide a script in `dataset/` that scrapes ImgFlip for more data.
 
