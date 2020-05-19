@@ -11,8 +11,3 @@ for i, row in df.iterrows():
 
     with open('./image_collection/base_img/' + row.MemeLabel + '.jpg', 'wb') as outfile:
         outfile.write(r.content)
-
-# url = 'http://papers.xtremepapers.com/CIE/Cambridge%20IGCSE/Mathematics%20(0580)/0580_s03_qp_1.pdf'
-# r = requests.get(url)
-# with open('0580_s03_qp_1.pdf', 'wb') as outfile:
-#     outfile.write(r.content)

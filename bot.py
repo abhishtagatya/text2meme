@@ -1,5 +1,6 @@
 import re
 import json
+import random
 import requests
 from datetime import datetime
 
@@ -25,35 +26,49 @@ class MemeAIBot(discord.Client):
 
     async def on_ready(self):
         print('Logged As : {0.user.name} | {0.user.id}'.format(self))
+
+        game = discord.Game("with $$meme")
+        await client.change_presence(activity=game)
         
     async def on_message(self, message):
         if message.author.id == self.user.id:
             return
-
+        
         if message.content.startswith(self.prefix):
-            [command] = re.findall('^([^\s]+)', message.content)
-            message_clean = re.sub('^([^\s]+)', '', message.content)
-            
-            if command == '$$meme':
-                resp, meme_class = self.generate_meme(message.author, message_clean)
-                if resp['success']:
-                    await message.channel.send(resp['data']['url'])
+
+            try:
+                [command] = re.findall('^([^\s]+)', message.content)
+                
+                if command == '$$meme':
+                    resp, meme_class = self.generate_meme(message)
+                    if resp['success']:
+                        await message.channel.send(resp['data']['url'])
+                    else:
+                        await message.channel.send('Meme Failed To Generate...\n' + self.generate_help_response())
+                    self.insert_text_to_db(message, meme_class, resp)
+                elif command == '$$mock':
+                    resp, meme_class = await self.generate_mock(message)
+                    if resp['success']:
+                        await message.channel.send(resp['data']['url'])
+                    else:
+                        await message.channel.send('Mock Failed To Generate, Please try again later...')
+                elif command == '$$list':
+                    resp = self.generate_list_response()
+                    await message.channel.send(resp)
+                elif command == '$$info':
+                    resp = self.generate_info_response(message)
+                    await message.channel.send(resp)
                 else:
-                    await message.channel.send('Meme Failed To Generate...')
-                self.insert_text_to_db(message, meme_class, resp)
-            elif command == '$$list':
-                resp = self.generate_list_response()
-                await message.channel.send(resp)
-            elif command == '$$info':
-                resp = self.generate_info_response(message_clean)
-                await message.channel.send(resp)
-            else:
-                resp = self.generate_help_response()
-                await message.channel.send(resp)
+                    resp = self.generate_help_response()
+                    await message.channel.send(resp)
+                print('{0.author} said "{0.content}"'.format(message).encode('utf-8'))
+            except discord.errors.Forbidden:
+                await message.channel.send("Whoops... I don't think I can do that yet...")
+
 
     def generate_help_response(self):
         resp_str = '**Bot Comands**\n\n>>> '
-        resp_str += '`{0.prefix}meme` : generates meme from message\n'.format(self)
+        resp_str += '`{0.prefix}meme` : generates meme from message (works best in english)\n'.format(self)
         resp_str += """```cs
 example : '$meme text1, text2' | text boxes seperated by commas)```\n"""
 
@@ -73,9 +88,10 @@ example : '$info 1'```\n"""
     def generate_info_response(self, message):
         resp = None
         meme_found = None
+        message_clean = re.sub('^([^\s]+)', '', message.content)
 
         for meme in self.meme_list:
-            if str(meme['id']) == message.strip():
+            if str(meme['id']) == message_clean.strip():
                 meme_found = meme
         
         if meme_found:
@@ -96,12 +112,11 @@ Text Boxes   : {4}
             )
             return resp
         
-        resp = "Oops... I didn't find any information on `{}`".format(message)
+        resp = "Oops... I didn't find any information on `{}`".format(message_clean)
         return resp
 
     def insert_text_to_db(self, message, meme_class, resp):
         collection = self.db["bot_meme_message"]
-        print(message.author)
         row = {
             "created_at" : datetime.now(),
             "message_id" : message.id,
@@ -113,15 +128,51 @@ Text Boxes   : {4}
         }
         collection.insert_one(row)
 
-    def generate_meme(self, user, message):
+    async def generate_mock(self, message, limit=10):
+
+        meme_found = 'Mocking Spongebob'
+        meme_label = '102156234'
+
+        find_message = None
+        message_clean = re.sub('^([^\s]+)', '', message.content)
+        message_split = message_clean.split(' ')
+
+        history_message = await message.channel.history(limit=limit).flatten()
+        if len(message_split) >= 2:
+            pass
+        else:
+            find_message = history_message[1]
+        
+        # Split Message In To Boxes
+        message_clean = ''.join(random.choice((str.upper, str.lower))(x) for x in find_message.content.lower())
+
+        message_split = message_clean.split(',')
+        message_split = [message.strip() for message in message_split]
+        box_count = len(message_split)
+
+        # Form a request to IMGFLIP
+        body = {
+            "template_id" : meme_label,
+            "username" : self.credential['username'],
+            "password" : self.credential['password'],
+        }
+        for i, msg in enumerate(message_split):
+            body["text"+str(i)] = msg
+        resp = requests.post(self.credential['url'], body).json()
+
+        return resp, meme_found    
+
+    def generate_meme(self, message):
+
+        message_clean = re.sub('^([^\s]+)', '', message.content)
 
         # Split Message In To Boxes
-        message_split = message.split(',')
+        message_split = message_clean.split(',')
         message_split = [message.strip().upper() for message in message_split]
         box_count = len(message_split)
 
         # Predict The Meme
-        [meme_found] = self.meme_clf.predict([message])
+        [meme_found] = self.meme_clf.predict([message_clean])
 
         # Find The Meme In the List
         meme_ref = None
