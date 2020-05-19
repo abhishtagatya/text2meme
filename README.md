@@ -15,7 +15,7 @@ You can freely use the dataset provided in Kaggle. It might not be regularly mai
 
 ## Try It Out!
 
-[![image](https://user-images.githubusercontent.com/7288322/34429152-141689f8-ecb9-11e7-8003-b5a10a5fcb29.png)](https://discordapp.com/api/oauth2/authorize?client_id=691313752037130312&permissions=522304&scope=bot)
+[![Discord Bots](https://top.gg/api/widget/691313752037130312.svg)](https://top.gg/bot/691313752037130312)
 
 You can try the bot in your discord server. Although it might not have a 100% uptime.
 
