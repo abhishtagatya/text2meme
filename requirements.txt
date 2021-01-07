@@ -14,7 +14,7 @@ hyperlink==19.0.0
 idna==2.9
 incremental==17.5.0
 joblib==0.14.1
-lxml==4.5.0
+lxml==4.6.2
 multidict==4.7.5
 numpy==1.18.3
 parsel==1.5.2
