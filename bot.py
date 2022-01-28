@@ -10,6 +10,7 @@ import discord
 import joblib
 import pymongo
 
+
 class MemeAIBot(discord.Client):
 
     def __init__(self, filepath, credential, mongo_uri="mongodb://localhost:27017/"):
